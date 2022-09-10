@@ -1,17 +1,17 @@
-interface MethodTypes{	
+public interface MethodTypes{	
 
-	//abstractos: solo de admiten publicos
+	//4. abstractos: solo de admiten publicos
 	void print();	
 		
-	//concretos: publicos o privados (protected no)
+	//**concretos: publicos o privados (protected no)
 		//metodos finales no son permitidos	
 	
-		//instancia: siempre privados
-	private void print2(){
-		System.out.println("");
+		//1. metodos instancia: siempre privados
+	private void print2(String message){
+		System.out.println(message);
 	}	
 	
-		//estaticos: publicos o privados
+		//2. estaticos: publicos o privados
 	public static void print4(){
 		System.out.println("");
 	}
@@ -19,24 +19,25 @@ interface MethodTypes{
 		System.out.println("");
 	}
 	
-		//default: siempre publicos
-	default void print6(){
-		System.out.println("");
+		//3. default: siempre publicos
+	public default void print6(){
+		print2("En el metodo default");
 	}
-
-	static void sayHello(int x){
-		if(x>0)	printMessage();
-	}
-
-	private static void printMessage(){
-		System.out.println("Hello!");
-	}
-
 	
-	//void move(int x){
-	//default void move(int x){
-	//private void move(int x){
-	static void move(int x){
-		System.out.println("ok");
+	public default void print7(){
+		print2("En el metodo default");
+	}
+	
+	public static void main(String args[]){
+		ClaseHija c = new ClaseHija();
+		c.print();
+		c.print6();
+		//c.print5();
 	}
 }	
+
+class ClaseHija implements MethodTypes{
+	public void print(){
+		System.out.println("implementacion de clase hija");
+	}
+}
