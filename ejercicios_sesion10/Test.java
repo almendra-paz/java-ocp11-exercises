@@ -1,8 +1,8 @@
 public class Test{
 	public static void main(String args[]){
-		try{
+		try{			
 			throw new RuntimeException();
-			throw new ArrayIndexOutOfBoundsException();
+			System.out.println("end of method");
 		}catch(Exception e){
 		}
 	}

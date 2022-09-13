@@ -9,8 +9,8 @@ public void capturandoExcepciones(){
 	try{
 		lanzandoExcepcion();
 	}catch( IllegalStateException e){
-	}catch(InputMismatchException | MissingResourceException e){
 	}catch(FileNotFoundException | IllegalArgumentException e){
+	}catch(InputMismatchException | MissingResourceException e){
 	}
 	catch(IOException e){}
 	catch(Exception e){}	

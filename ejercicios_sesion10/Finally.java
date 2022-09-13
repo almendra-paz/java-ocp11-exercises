@@ -7,9 +7,10 @@ public class Finally{
 	}
 
 	public static int getValue(){
+		System.out.println("started");
 		try{
 			System.out.println("1");				
-			//System.exit(0);	//termina el programa
+			System.exit(0);	//termina el programa
 			//throw new RuntimeException();
 			return -1;					
 		}catch(Exception e){
@@ -20,6 +21,7 @@ public class Finally{
 			return -3;
 		}
 		//return 0;
+		//System.out.println("finished");
 	}
 
 }
