@@ -1,11 +1,11 @@
 public class DeclaradorArray{
 
 	public static void main(String arg[]){
-		/*
-		int[] notas = {20,19,18};
-		double[] notas2 = notas; 
-		*/
+		
+		int[] notas_p = {20,19,18};
+		double[] notas2_p = notas_p; 		
 
+		// ArrayStoreException
 		String[] nombres = {"Juan", "Carlos"};
 		Object[] objetos = nombres;
 		objetos[0]= new String("hello");
@@ -13,11 +13,8 @@ public class DeclaradorArray{
 		
 		Integer[] notas = {20,19,18};
 		Number[] notas2 = notas;
-		//notas2[0] = new Integer(2);		
-		
-		
-
-		
+		notas2[0] = new Integer(2);	
+				
 		//String[] nombres2 = {"Juan", "Carlos"};
 		/*Object[] objetos2 = new String[]{"Juan","Carlos"};
 		objetos2[0]= new Object();		
