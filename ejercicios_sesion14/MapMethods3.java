@@ -11,9 +11,14 @@ public class MapMethods3{
 		map1.put("cod3","Karla");
 
 		//--- Foreach and EntrySet
+		System.out.println("--- forEach ----");
 		map1.forEach((k,v)-> System.out.println(v+ " "+k));
-
+		
+		System.out.println("--- values() ----");
 		map1.values().forEach(v->System.out.println(v));
+		
+		System.out.println("--- entrySet()");
+		//Map.entry("key1","val1")
 		map1.entrySet().forEach(e-> 
 		System.out.println(e.getKey() + e.getValue()));
 
@@ -24,13 +29,13 @@ public class MapMethods3{
 		//replace() and replaceAll()
 		String original = map1.replace("cod1", "Maria");
 		System.out.println("original: "+original);
-		System.out.println(map1);
+		System.out.println("dps del reemplazo: "+map1);
 
 		map1.replaceAll((k,v)-> k+v);
 		System.out.println(map1);	
 
-		map1.putIfAbsent("cod1","Maria");
-		map1.putIfAbsent("cod4","Maria");
+		System.out.println(map1.putIfAbsent("cod1","Maria"));
+		System.out.println(map1.putIfAbsent("cod4","Maria"));
 		System.out.println(map1);
 	}
 }

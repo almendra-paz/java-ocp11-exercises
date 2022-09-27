@@ -12,6 +12,15 @@ public class UpperBounded{
 	}
 
 	public static void main(String[] args){
+		//List<Number> numbers = new ArrayList<Integer>();
+		//List<Number> numbers = new ArrayList<Double>();
+		//sí funciona: List<Object> numbers = new ArrayList<Object>();
+		
+		List<Number> numbers = new ArrayList<Number>();
+		numbers.add(Integer.valueOf(1));
+		numbers.add(Double.valueOf(20.5));
+		total(numbers);
+		
 		List<Integer> enteros = new ArrayList<Integer>();
 		enteros.add(Integer.valueOf(1));
 		enteros.add(Integer.valueOf(2));

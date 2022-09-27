@@ -10,9 +10,11 @@ public class MapMethods2{
 		map1.put("cod2","Carlos");
 		map1.put("cod3","Karla");
 
+		//GET
 		String alumno = map1.get("cod1"); //"Juan"
 		System.out.println(alumno);
 
+		// KEYSET
 		for(String key: map1.keySet())
 			System.out.println(key + ",");
 

@@ -27,18 +27,25 @@ public class Student3{
 		var a3 = new Student3();
 		a3.id =5; 	a3.name = "Carlos";
 
-		List students = new ArrayList<Student3>();
+		List<Student3> students = new ArrayList<>();
 		students.add(a1);
 		students.add(a2);
 		students.add(a3);
 		//Collections.sort(students);
-		System.out.println(students);
+		System.out.println("natural order: "+students);
 
+		Comparator<Student3> byId = Comparator.comparing(Student3::getId);
+		Comparator<Student3> byIdRev = Comparator.comparing(Student3::getId).reversed();
+		
 		Comparator<Student3> byIdThenName = 					Comparator.comparing(Student3::getId)
 				.thenComparing(Student3::getName);
 
+		Collections.sort(students, byId);
+		System.out.println("order by Id: "+students);
+		Collections.sort(students, byIdRev);		
+		System.out.println("order byIdReverso: "+students);
 		Collections.sort(students, byIdThenName);
-		System.out.println(students);
+		System.out.println("order byIdAndName: "+students);
 	}
 
 }

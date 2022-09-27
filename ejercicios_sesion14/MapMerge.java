@@ -5,6 +5,8 @@ import java.util.function.BiFunction;
 public class MapMerge{
 
 	public static void main(String args[]){
+		//toma la cadena más larga
+		// ("aa", "aaa") -> "aaa"
 		BiFunction<String, String, String> mapper = 
 (v1,v2) -> v1.length()>v2.length()?v1:v2;
 		
@@ -15,9 +17,9 @@ public class MapMerge{
 		map.put("cod4",null);
 
 		//evaluacion para actualizar
-		map.merge("cod1","Juan Carlos", mapper); //Juan Carlos
+		map.merge("cod1","Roberto", mapper); //Roberto
 		map.merge("cod2","Carlos", mapper); //Carlos
-		map.merge("cod3","Karl", mapper); //Karla
+		map.merge("cod3","Karl", mapper);  //Karla
 
 		System.out.println(map);
 
@@ -30,10 +32,13 @@ public class MapMerge{
 		BiFunction<String, String, String> mapper2 = 
 		(v1,v2) -> null;
 		map.merge("cod1","Juan", mapper2);	//
+		System.out.println(map);
 
-		map.merge("cod5","Marta", mapper2);	
-		map.merge("cod6", "Marta", mapper2);
-		System.out.println(map);	//4 elementos
+		//{cod4=Jesus, cod5=Maria, cod2=Carlos, cod3=Karla}
+		map.merge("cod5","Marta", mapper2);	//elimina cod5
+		//{cod4=Jesus, cod2=Carlos, cod3=Karla}
+		map.merge("cod6", "Marta", mapper2); 
+		System.out.println(map);
 	}
 
 }
