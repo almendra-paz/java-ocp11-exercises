@@ -9,7 +9,7 @@ public class ConsumerClass{
 		list.add(new Alumno(18, "Carlos"));
 		list.add(new Alumno(10, "Pedro"));
 
-		Consumer<Alumno> c1 = a-> System.out.println(a);
+		Consumer<Alumno> c1 = (Alumno a)-> System.out.println(a);
 		Consumer<Alumno> c2 = a-> a.nota=20;
 		imprimirListado(list, c2);
 		imprimirListado(list, c1);

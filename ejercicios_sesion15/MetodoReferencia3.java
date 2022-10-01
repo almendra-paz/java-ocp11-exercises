@@ -1,6 +1,7 @@
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.BiPredicate;
+import java.util.function.BiFunction;
 import java.util.function.Supplier;
 import java.util.function.Function;
 import java.util.List;
@@ -32,9 +33,8 @@ public class MetodoReferencia3{
 				x-> new ArrayList(x);
 		System.out.println("const2: "+
 			methodRef3.apply(List.of("a","b")));
-		
+				
+
 	}
-
-
+		
 }
-
