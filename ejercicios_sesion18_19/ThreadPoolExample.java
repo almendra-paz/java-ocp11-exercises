@@ -14,7 +14,7 @@ public class ThreadPoolExample{
 		//service = Executors.newSingleThreadExecutor();
 		service = Executors.newFixedThreadPool(3);
 		Callable<String> task1 = ()-> {Thread.sleep(5000);
-			System.out.println("task1");return "result";};
+			System.out.println("task1 finished");return "result";};
 
 		service.submit(task1);
 		service.submit(task1);

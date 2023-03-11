@@ -12,26 +12,28 @@ public class Methods2{
 		alumnos.add(new Alumno(11,"Julia", true));
 		alumnos.add(new Alumno(8,"Olga", false));
 
-		Consumer<Alumno> actNota = 
-			a -> a.nota = a.nota+2;
-		Consumer<Alumno> imprimir = 
-			a -> System.out.println(a);
+		Consumer<Alumno> actNota = a -> a.nota = a.nota+2;
+		Consumer<Alumno> imprimir = a -> System.out.println(a);
 		Consumer<Alumno> actNotaAndImprimir = 						actNota.andThen(imprimir);
 
-		
-		Function<Alumno, Integer> actNota2= 
-			a-> a.nota+1;
-		Function<Integer, String> imprimir2= 
-			a-> "nota: "+a;
-		Function<Alumno, String> compuesto = imprimir2.compose(actNota2);
-
 		for(Alumno alum: alumnos){
-			//actNotaAndImprimir.accept(alum);
-			System.out.println(compuesto.apply(alum));
+			actNotaAndImprimir.accept(alum);			
+		}
+		for(Alumno alum: alumnos){			
+			System.out.println(alum);
 		}
 		
+		Function<Alumno, Integer> actNota2= a-> a.nota+1;
+		Function<Integer, String> imprimir2= a-> "nota: "+a;
+		Function<Alumno, String> compuesto = 
+								imprimir2.compose(actNota2);
 
-
+		for(Alumno alum: alumnos){			
+			System.out.println(compuesto.apply(alum));
+		}
+		for(Alumno alum: alumnos){			
+			System.out.println(alum);
+		}
 	}
 }
 

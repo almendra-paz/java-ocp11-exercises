@@ -19,20 +19,42 @@ public class LowerBounded{
 			new ArrayList<Object>(strings);
 		addHello(objects);
 		
-		List<? super IOException> exceptions = new ArrayList<Exception>();
+		List<? super IOException> exceptions = new ArrayList<Exception>();		
+		add(exceptions);
 		
+		/*
 		List<Exception> list= new ArrayList<>();
 		list.add(new Exception());
 		list.add(new IOException());
-		list.add(new FileNotFoundException());
-		
-		exceptions = list;
-		
-		exceptions.add(new FileNotFoundException());
-		exceptions.add(new IOException());
-		exceptions.add(new Exception());		
+		list.add(new FileNotFoundException());*/
+	}
 
+	//List<IOException>, List<Exception>, List<Object>
+	public static void add(List<? super IOException> excepciones){
+		excepciones.add(new FileNotFoundException());
+		excepciones.add(new IOException());
+		//excepciones.add(new Exception());	
+	}
+
+	/* Sobrecarga no válida, la firma es la misma
+	public static void add(List<? extends FileNotFoundException> excepciones){
+		//
+	}
+	*/
+	public <T> T third(List<T> list){
+		//return new T(); // tipo genérico no se puede instanciar
+		return null;
+	}
+	
+	public <T extends A> B third2(List<T> list){
+		return new B();
 	}
 
 
 }
+
+class B extends A{}
+class A{}
+
+
+

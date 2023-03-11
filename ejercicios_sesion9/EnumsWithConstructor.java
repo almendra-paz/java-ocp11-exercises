@@ -12,11 +12,13 @@ public class EnumsWithConstructor{
 	}	
 }
 
-enum DocumentType{
+enum DocumentType {
 	DNI("dni"){
+		public int edad1;	
+		public static final int edad2 = 10;
 		public void sumar(int op1){
 			System.out.println(op1+2);
-		}
+		}				
 	}, 
 	CE("carnet de extranjeria"){
 		public void sumar(int op1){

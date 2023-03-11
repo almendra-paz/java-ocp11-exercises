@@ -6,10 +6,12 @@ public class FiniteStream{
 	public static void main(String args[]){
 		System.out.println("---- Finite Stream ----");
 		Stream<String> empty = Stream.empty();	//empty
-		Stream<Integer> singleElement = 
-			Stream.of(1); // de 	1 valor
-		Stream<Integer> fromArray = 
-			Stream.of(1, 2, 3); //de un array
+		
+		// de 	1 valor
+		Stream<Integer> singleElement = Stream.of(1); 
+		//de un array		
+		Stream<Integer> fromArray = Stream.of(1, 2, 3); 
+		
 		// a partir de una colección
 		var list = List.of("a", "b", "c");
 		Stream<String> fromList = list.stream();

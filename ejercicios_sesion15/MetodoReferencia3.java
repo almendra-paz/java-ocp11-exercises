@@ -1,6 +1,7 @@
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.function.BiPredicate;
+import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Supplier;
 import java.util.function.Function;
@@ -20,6 +21,13 @@ public class MetodoReferencia3{
 					String::startsWith;
 		BiPredicate<String, String> lambda1 = 
 			(s,p)->s.startsWith(p);
+			
+		BiFunction<String, String, Boolean> lambdaFunction1 = 
+			(s,p)->s.startsWith(p);
+		BiFunction<String, String, Boolean> methodFunction1 = 
+			String::startsWith;
+							
+			
 		System.out.println(methodRef1.test("hello", "h"));
 
 		//---- constructores
@@ -32,9 +40,20 @@ public class MetodoReferencia3{
 		Function<List<String>,List<String>> lambda3 = 
 				x-> new ArrayList(x);
 		System.out.println("const2: "+
-			methodRef3.apply(List.of("a","b")));
-				
+			methodRef3.apply(List.of("a","b")));				
+			
+		//
+		BiConsumer<String, String> concat = 
+		(a,b)-> concatenar(a,b);
+		
+		BiConsumer<String, String> methodConcat = 
+		MetodoReferencia3::concatenar;
 
 	}
+	
+	public static void concatenar(String a, String b){ 
+		System.out.println( a + b);
+	}
+
 		
 }

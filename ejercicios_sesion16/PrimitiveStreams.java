@@ -2,6 +2,7 @@ import java.util.stream.Stream;
 import java.util.stream.IntStream;
 import java.util.Optional;
 import java.util.OptionalDouble;
+import java.util.OptionalInt;
 
 
 public class PrimitiveStream{
@@ -15,5 +16,13 @@ public class PrimitiveStream{
 		IntStream intStream = IntStream.of(1,2,3);
 		OptionalDouble avg = intStream.average();
 		System.out.println(avg.getAsDouble());//2
+		
+		intStream = IntStream.of(1,2,3);
+		OptionalInt min = intStream.min();
+		System.out.println(min.getAsInt());		
+		
+		intStream = IntStream.of(1,2,3);
+		OptionalInt max = intStream.max();		
+		System.out.println(max.getAsInt());
 	}
 }

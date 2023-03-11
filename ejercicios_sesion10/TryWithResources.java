@@ -4,6 +4,15 @@ import java.io.IOException;
 public class TryWithResources{
 
 	public static void main(String args[]){
+		// estructura try/catch
+		try{
+			
+		}catch(Exception e){
+			
+		}
+		
+		//estructura try-with-resources
+		
 		try(FileInputStream is = new FileInputStream("myfile.txt")){
 			//manejo del archivo
 		}catch(IOException e){

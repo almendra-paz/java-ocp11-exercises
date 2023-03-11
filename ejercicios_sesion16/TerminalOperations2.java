@@ -11,7 +11,7 @@ public class TerminalOperations2{
 		List<String> list = 
 			List.of("monkey", "gorilla", "bonobo");
 
-		Predicate<String> pred = x -> x.startsWith("m");
+		Predicate<String> pred = x -> x.length()>6;
 
 		//-----anyMatch, allMatch, noneMatch
 		System.out.println(list.stream().anyMatch(pred)); //true

@@ -11,10 +11,10 @@ public class RunnableExamples{
 		task2.run();
 
 		System.out.println("---- Creando un hilo");
-		(new Thread(task1)).start();
+		(new Thread(task1)).start(); //start ante que run()
 		(new MyThread()).start();
 
-		System.out.println("end");
+		System.out.println("--- end");
 	}
 
 }

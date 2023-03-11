@@ -11,13 +11,18 @@ public class SingleThreadWithCallableAndFuture{
 		ExecutorService service = null;
 		try{
 			service = Executors.newSingleThreadExecutor();
-			Callable<Integer> call1 = 
-				() -> {Thread.sleep(15000);return 20+10;};
+			Callable<Integer> call1 = () -> {
+					System.out.println("--- Comenzando a procesar tarea call1");
+					Thread.sleep(8000);
+					return 20+10;
+				};
+			
 			Future<Integer> result = service.submit(call1);
+			
 			System.out.println(result.get(10, TimeUnit.SECONDS));//30
 			System.out.println("Resultado obtenido!");
 		}catch(TimeoutException ex){
-			System.out.println("no alcanzado a tiempo");
+			System.out.println("no se alcanzó resultado a tiempo");
 		}finally{
 			if(service!=null)
 				service.shutdown();

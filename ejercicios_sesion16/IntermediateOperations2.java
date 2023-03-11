@@ -9,12 +9,13 @@ public class IntermediateOperations2{
 		System.out.println("---- map ----");	
 		Stream<String> pets = Stream.of("gato", "perro", "gallina", "gato", "loro");	
 		pets.map(String::length)
-			.forEach(System.out::println);
+			.forEach(System.out::println); //4,5,7,4,4
 
 		System.out.println("---- FlatMap ----");
 		List<String> zero = List.of();
 		var one = List.of("Juan");
 		var two = List.of("Maria", "Ana");
+		
 		Stream<List<String>> nombres = Stream.of(zero, one, two);
 		nombres.flatMap(m->m.stream())
 			.forEach(System.out::println);
@@ -33,6 +34,12 @@ public class IntermediateOperations2{
 				.filter(s-> s.startsWith("m"))
 				.peek(System.out::println).count();
 		System.out.println(count);
+				
+		colores.stream()
+				.filter(s-> !s.startsWith("m"))
+				.sorted()
+				.limit(1)
+				.forEach(System.out::println);
 	}
 
 }

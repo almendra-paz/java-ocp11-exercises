@@ -22,7 +22,7 @@ public class Methods{
 				nota.or(habilitacion);
 
 		for(Alumno alum: alumnos){
-			if(notaNoHabilitado.test(alum)){
+			if(notaOrHabilitado.test(alum)){
 				System.out.println(alum);
 			}
 		}		

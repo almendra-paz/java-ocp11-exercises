@@ -6,18 +6,28 @@ public class SingleThread{
 	public static void main(String args[]) throws Exception{
 		ExecutorService service = null;
 		Runnable task1 = 
-			() -> System.out.println("Imprimiendo tarea");
+			() -> {
+					try{
+						//Thread.sleep(1000);
+						System.out.println("Imprimiendo tarea");
+					}catch(Exception e){
+						System.out.println("exception during sleeping");
+					}
+				};
 		try{
 			service = Executors.newSingleThreadExecutor();
-			System.out.println("begin");
+			System.out.println("--- begin");
 			service.execute(task1);
-			System.out.println("end");
+			System.out.println("--- end");
 		} finally {
 			if(service !=null){
+				/*
 				service.shutdown();
-				Thread.sleep(3);
-				System.out.println(service.isTerminated());
-				//System.out.println(service.shutdownNow());
+				System.out.println("isShutdown: "+service.isShutdown());
+				System.out.println("isTerminated: "+service.isTerminated());
+				*/
+				//Thread.sleep(3);				
+				System.out.println(service.shutdownNow());
 			}
 		}
 

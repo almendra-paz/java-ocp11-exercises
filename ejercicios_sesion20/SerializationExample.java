@@ -21,13 +21,13 @@ import java.util.List;
 public class SerializationExample{
 
 	public static void main(String args[]) throws Exception{
-		Gorilla go = new Gorilla("Kong", 20, true);
+		Gorilla go = new Gorilla("Kong", 20, true);//nombre: "Kong", edad: 20, friendly: true, favoritefood: ""
 		Gorilla go2 = new Gorilla(); //nombre: "King", 10, false, "banana"
 		var f1 = new File("gorilla.txt");
 
-		saveToFile(List.of(go2), f1);
+		saveToFile(List.of(go, go2), f1);
 		List<Gorilla> list = readFromFile(f1);
-		System.out.println(list); //favoriteFood = null
+		System.out.println(list); 
 	}
 
 	public static void saveToFile(List<Gorilla> gorillas, File dataFile) throws IOException{
@@ -59,12 +59,12 @@ class Gorilla implements Serializable{
 	
 	private String name;
 	private int age;
-	private Boolean friendly;
+	private static Boolean friendly;
 	private transient String favoriteFood;
 
 	public String toString(){
 		return "name: "+name+ ", age: "+age+ ", friendly: "+friendly+
-			 ", favoriteFood"+favoriteFood;
+			 ", favoriteFood: "+favoriteFood;
 	}
 
 	public Gorilla(){

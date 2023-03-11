@@ -8,7 +8,7 @@ public class Grouping{
 	public static void main(String args[]){
 		System.out.println("---- groupingBy ----");
 		var pets = Stream.of("loro", "gato", "perro");
-		Map<Integer, List<String>> map = pets.collect				(Collectors.groupingBy(String::length));
+		Map<Integer, List<String>> map = pets.collect				(Collectors.groupingBy(a->a.length()));
 		System.out.println(map); 
 
 		System.out.println("---- partitioningBy ----");

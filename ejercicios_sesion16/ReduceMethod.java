@@ -9,24 +9,30 @@ public class TerminalOperations2{
 		Stream<String> infinite = 
 			Stream.generate(()->"hello");
 		List<String> list = 
-			List.of("monkey", "gorilla", "bonobo");
+			List.of("monkey", "gorilla", "bonobo", "bonobo");
+			
 		Stream<Integer> oneElement = Stream.of(3);
 		Stream<Integer> fourElement = Stream.of(3,5,6,7);
 		Stream<Integer> empty = Stream.empty();
 
 		//-----reduce
-		String value= list.stream().reduce("", (a,b)->a.concat(b));
-		System.out.println(value); //monkeygorillabonobo
+		String value= list.stream().reduce("||", (a,b)->a.concat(b));
+		System.out.println(value); //||monkeygorillabonobo
 
 		//----- sin identity
 		empty.reduce((a,b)->a*b).ifPresent(System.out::println);
-		oneElement.reduce((a,b)->a*b).ifPresent(System.out::println);		//3
-		fourElement.reduce((a,b)->a*b).ifPresent(System.out::println);	//630
+		
+		oneElement.reduce((a,b)->a+b).ifPresent(System.out::println); //3
+		fourElement.reduce((a,b)->a+b).ifPresent(System.out::println); //21
 
 		//----- reduce 
 		int tamanio = list.stream()
-			.reduce(0,(a,b)->a+b.length(), (c,d)->c+d);
+			.reduce(5,(a,b)->a+b.length(), (c,d)->c*d);			
 		System.out.println(tamanio);
+		
+		int tamanio2 = list.parallelStream()
+			.reduce(5,(a,b)->a+b.length(), (c,d)->c+d);			
+		System.out.println(tamanio2);
 
 		
 	}

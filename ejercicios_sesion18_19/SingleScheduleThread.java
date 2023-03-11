@@ -11,15 +11,25 @@ public class SingleScheduleThread{
 	public static void main(String args[]) throws Exception{
 		ScheduledExecutorService service = null;
 		service = Executors.newSingleThreadScheduledExecutor();
-		Runnable task1 = 
-			() -> System.out.println("task1");
-		Callable<String> call1 = 
-			() -> {return "result";};
+		
+		Runnable task1 = () -> {
+			try{
+				System.out.println("task1");
+				Thread.sleep(2000);				
+			}catch(Exception ex){
+				
+			}
+		};
+		Callable<String> call1 = () -> {
+			System.out.println("callable");
+			return "result";
+		};
 		//ScheduledFuture<?> r1 = service.schedule(task1, 10, TimeUnit.SECONDS);
-		//ScheduledFuture<?> r2 = service.schedule(call1, 8, TimeUnit.SECONDS);
+		ScheduledFuture<?> r2 = service.schedule(call1, 8, TimeUnit.SECONDS);
 
-		//service.scheduleAtFixedRate(task1, 2, 5, TimeUnit.SECONDS);
-		service.scheduleWithFixedDelay(task1, 0, 8, TimeUnit.SECONDS);
+		//service.scheduleAtFixedRate(task1, 2, 3, TimeUnit.SECONDS);
+		//service.scheduleWithFixedDelay(task1, 2, 3, TimeUnit.SECONDS);
+		//service.scheduleWithFixedDelay(task1, 0, 8, TimeUnit.SECONDS);
 		System.out.println("end");
 		
 	}

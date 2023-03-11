@@ -36,7 +36,10 @@ class WorkersManager{
 	}
 
 	private void procesarData(){
-		System.out.println("Procesar datos");
+		try{
+			Thread.sleep(2000);
+			System.out.println("Procesar datos");
+		}catch(Exception ex){}	
 	}
 
 	private void imprimirResumen(){

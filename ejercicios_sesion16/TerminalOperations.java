@@ -4,24 +4,24 @@ import java.util.Optional;
 public class TerminalOperations{
 
 	public static void main(String args[]){
-		Stream<String> infinite = Stream.generate(()->"hello");
-
+		
 		System.out.println("---- count ----");
 		Stream<String> s = 
 			Stream.of("monkey", "gorilla", "bonobo");
 		long conteo = s.count();
-		System.out.println(conteo);	//3		
+		System.out.println(conteo);	//3
 
 		System.out.println("---- min ----");
-		s = Stream.of("monkey", "gorilla", "bonobo");
-		Optional<String> min = s.min((s1,s2)-> s1.compareTo(s2));
-		min.ifPresent(System.out::println);
+		s = Stream.of("gato", "leon", "mono");
+		Optional<String> min = s.min((s1,s2)-> s2.compareTo(s1));
+		min.ifPresent(System.out::println); //
 
 		System.out.println("-----findAny, findFirst");
 		s = Stream.of("monkey", "gorilla", "bonobo");
-		s.findAny().
-			ifPresent(System.out::println); //monkey
+		s.findFirst().
+			ifPresent(System.out::println); 
 
-		infinite.findAny().ifPresent(System.out::println);
+		Stream<String> infinite = Stream.generate(()->"hello");
+		infinite.findAny().ifPresent(System.out::println);//
 	}
 }

@@ -23,7 +23,8 @@ public class MetodoReferencia2{
 		Predicate<String> lambda = s -> str.startsWith(s);
 		Predicate<String> methodRef = str::startsWith;
 
-		System.out.println(methodRef.test("he"));
+		System.out.println(methodRef.test("he")); //true
+		//"he"-> str.startsWith("he");
 
 		var random = new Random();
 		Supplier<Integer> lambda1 = ()->random.nextInt();

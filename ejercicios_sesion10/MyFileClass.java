@@ -8,10 +8,17 @@ public class MyFileClass implements AutoCloseable{
 	}
 
 	public static void main(String args[]){
+		
+		//Secuencia cuando se lanza la excepcion
+		//1. Se cierran los recursos (invoca metodo close)
+		//2. bloque catch(){}
+		//3. bloque finally{}
+		
 		try(MyFileClass a1 = new MyFileClass(1); MyFileClass a2 = new MyFileClass(2)){
-			throw new RuntimeException();
+			System.out.println("iniciando bloque try");
+			//throw new RuntimeException();
 		}catch(Exception e){
-			System.out.println("exception");
+			System.out.println("en el bloque catch");
 		}finally{
 			System.out.println("finally");
 		}

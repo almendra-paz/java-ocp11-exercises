@@ -13,7 +13,11 @@ public class SingleThreadWithCallableAndFuture2{
 		try{
 			service = Executors.newSingleThreadExecutor();
 			Callable<String> call1 = 
-				() -> {Thread.sleep(2000);return "result";};
+				() -> {
+						System.out.println("Ejecutando call");
+						Thread.sleep(2000);
+						return "result";
+					};
 
 			System.out.println("--- invokeAll ----");
 			List<Future<String>> result = service.invokeAll(List.of(call1, call1, call1));

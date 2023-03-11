@@ -31,15 +31,19 @@ class WorkersManager{
 	private int workersCount = 0;
 
 	protected void incrementAndReport(Lock lock){
-		//if(lock.tryLock()){
-			try{	lock.lock();
-				System.out.println("hilo obtenido");
-				System.out.println((++workersCount)+" ");
-			}finally{
-				lock.unlock();
-			}
-		//}else{
-		//	System.out.println("no se pudo adquirir el hilo");
-		//}
+		try{
+				if(lock.tryLock(5, TimeUnit.SECONDS)){
+					try{
+						//lock.lock();
+						System.out.println("hilo obtenido");
+						System.out.println((++workersCount)+" ");
+					}finally{
+						lock.unlock();
+					}
+				}else{
+					System.out.println("no se pudo adquirir el hilo");
+				}
+
+		}catch(Exception ex){}
 	}
 }

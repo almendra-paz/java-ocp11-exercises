@@ -26,9 +26,7 @@ public class SynchronizedBlockExample{
 class WorkersManager{
 	private int workersCount = 0;
 
-	protected void incrementAndReport(){
-		synchronized(this){
-			System.out.println((++workersCount)+" ");
-		}
+	protected synchronized void incrementAndReport(){		
+			System.out.println((++workersCount)+" ");		
 	}
 }
