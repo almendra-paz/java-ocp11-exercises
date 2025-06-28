@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: java-ocp11-exercises
+  description: exercises to prepare for java ocp 11 certification
+spec:
+  type: service
+  lifecycle: production
+  owner: cross-team
